@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   soc-net:
     driver: bridge
@@ -85,13 +83,13 @@ services:
     networks:
       - soc-net
     ports:
-      - "9002:9002" # S3 API
+      - "9002:9000" # S3 API
       - "9003:9003" # Console UI
     volumes:
       - minio_data:/data
     env_file: .env
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:9002/minio/health/live"]
+      test: ["CMD-SHELL", "curl -s -f http://localhost:9000/minio/health/live"]
       interval: 10s
       timeout: 5s
       retries: 5

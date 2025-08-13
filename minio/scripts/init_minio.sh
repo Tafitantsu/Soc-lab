@@ -2,7 +2,7 @@
 set -e
 
 # Wait for MinIO to be available
-until mc alias set myminio http://localhost:9002 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD; do
+until mc alias set myminio http://localhost:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD; do
     echo "MinIO not ready yet, retrying in 5 seconds..."
     sleep 5
 done
